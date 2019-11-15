@@ -5,23 +5,28 @@ class ClassCarros extends ClassConexao{
     //$this->exibiCarros();
     public function exibeCarros()
     {
-        $BFetch = $this->conectaDB()->prepare('select * from carros');
-        $BFetch->execute();
-
+        $sql = "select * from carros";
+        
+        $result = $this->conectaDB()->query($sql);
         $j = [];
         $i = 0;
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+               $j[$i++] = [
+                'id' => $row['id'],
+                'marca' => $row['marca'],
+                'modelo' => $row['modelo'],
+                'ano' => $row['ano'],
+               ];
+  
+            }
+        } 
 
-        while($Fetch = $BFetch->fetch(PD0 :: FETCH_ASSOC)){
-            $j[$i] = [
-                'id' =>$Fetch['id'],
-                'marca' =>$Fetch['marca'],
-                'modelo' =>$Fetch['modelo'],
-                'ano' =>$Fetch['ano']
-            ];
-            $i++; 
-        }
+        echo json_encode($j);
 
-        echo json_decode($j);
-        
     }
+
+        
+    
 }

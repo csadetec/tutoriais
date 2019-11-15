@@ -2,15 +2,14 @@
 
 abstract class ClassConexao{
     # conexao com o banco de dados
-    protected function conectaDB()
+    public function conectaDB()
     {
-        try{
-            $con = new PDO("mysql:host=localhost; dbname=tutorias", "server", "server");
-            return $con;
-        }catch(PDOException $Erro){
-            return $Erro->getMessage();
-        }
+        $con = new mysqli("localhost", "server", "server", "tutoriais");
         
+        if($con->connect_error){
+            die("Connection failed: ".$con->connect_error);
+        }
+        return $con;
     }
     
 }
