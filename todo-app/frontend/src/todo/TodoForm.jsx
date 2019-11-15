@@ -10,11 +10,13 @@ export default props => (
             onChange = {props.handleChange}
             value={props.description} />
         </Grid>
-        <Grid cols='12 3 2'>
+        <Grid cols='12 3 2' className="row">
             <IconButton  styleButton='primary' icon='plus'
                 onClick={props.handleAdd}></IconButton>
             <IconButton  styleButton='info' icon='search'
                 onClick={props.handleSearch}></IconButton>
+            <IconButton  styleButton='default' icon='times'
+                onClick={props.handleClear}></IconButton>
         </Grid>
     </div>
 )

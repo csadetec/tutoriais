@@ -5,7 +5,7 @@ import Todo from './todo/Todo'
 import About from './about/About'
 //import Menu from './template/Menu'
 import Menu from './template/Nav'
-
+import './template/custom.css'
 
 export default props => (
     <BrowserRouter>

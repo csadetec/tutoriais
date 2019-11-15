@@ -1,8 +1,6 @@
 import React from 'react'
 import If from './If'
 
-import './IconButton.css'
-
 
 export default props => (
     <If test={!props.hide}>
