@@ -1,26 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+
 import logo from './assets/images/logo.png';
-import api from './Api'
+import Home from './Home'
+import NewSeries from './NewSeries'
+import Series from './Series'
 
-class App extends React.Component{
-  constructor(props){
-    super(props)
+const About = () => (
+  <section className="intro-section">
+    <h2>Sobre</h2>
+  </section>
+)
 
-    this.state = {
-      count: 0
-    }
-  }
-  /** */
-  componentDidMount(){
-    api.loadGenres()
-      .then((res)=>console.log(res.data))
-    api.loadSeries()
-      .then((res)=>console.log(res.data))
-  }
-
+class App extends Component{
+  
   render(){
     return(
-      <div>
+      <Router>
         <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
           <div className="container">
             <div className="navbar-header page-scroll">
@@ -31,71 +27,23 @@ class App extends React.Component{
             <div className="collapse navbar-collapse navbar-ex1-collapse">
               <ul className="nav navbar-nav">
                 <li>
-                  <a href="/">Menu item {this.state.count}</a>
+                  <Link to="/">Menu item</Link>
+                </li>
+                <li>
+                  <Link to="/new">Nova Série</Link>
+                </li>
+                <li>
+                  <Link to="/about">Sobre</Link>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-        <section id="intro" className="intro-section">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <h1><img src={logo} alt = "Logo do site"/></h1>
-                <p>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="services" className="services-section">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <h1>Para assistir</h1>
-                <div id="series" className="row list-group">
-                  <div className="item  col-xs-4 col-lg-4">
-                    <div className="thumbnail">
-                      <img className="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                      <div className="caption">
-                        <h4 className="group inner list-group-item-heading">
-                          How I met your mother</h4>
-                        <div className="row">
-                          <div className="col-xs-12 col-md-6">
-                            <p className="lead">
-                              AÇÃO</p>
-                          </div>
-                          <div className="col-xs-12 col-md-6">
-                            <a className="btn btn-success" href="/">Gerenciar</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="item  col-xs-4 col-lg-4">
-                    <div className="thumbnail">
-                      <img className="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                      <div className="caption">
-                        <h4 className="group inner list-group-item-heading">
-                          How I met your mother</h4>
-                        <div className="row">
-                          <div className="col-xs-12 col-md-6">
-                            <p className="lead">
-                              AÇÃO</p>
-                          </div>
-                          <div className="col-xs-12 col-md-6">
-                            <a className="btn btn-success" href="http://www.jquery2dotnet.com">Gerenciar</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+        <Route exact path="/" component = {Home} />
+        <Route path='/series/:genre' component={Series} />
+        <Route path="/new" component = {NewSeries} />
+        <Route path="/about" component = {About} />
+      </Router>   
     )
   }
 }

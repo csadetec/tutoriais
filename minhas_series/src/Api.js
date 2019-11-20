@@ -9,7 +9,9 @@ const api = 'http://localhost:8080'
 
 const apis = {
     loadGenres:() => axios.get(`${api}/genres`),
-    loadSeries:() => axios.get(`${api}/series`)
+    loadSeries:() => axios.get(`${api}/series`),
+    saveSeries:(newSeries) => axios.post(`${api}/series`, newSeries),
+    loadSeriesByGenre: (genre) => axios.get(`${api}/series?genre=${genre}`)
 
 }
 
