@@ -1,0 +1,30 @@
+{
+  "series": [
+    {
+      "id": 5,
+      "name": "Justiceiro 2",
+      "status": "watched",
+      "genre": "Drama",
+      "comments": "foda"
+    },
+    {
+      "name": "Fome de poder",
+      "status": "watched",
+      "genre": "Drama",
+      "comments": "Foi bom ",
+      "id": 6
+    },
+    {
+      "name": "Game of Thrones",
+      "status": "watching",
+      "genre": "Ação",
+      "comments": "Terminando uma bosta",
+      "id": 7
+    }
+  ],
+  "genres": [
+    "Comédia",
+    "Drama",
+    "Ação"
+  ]
+}
