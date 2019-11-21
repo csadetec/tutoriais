@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
-//import logo from './assets/images/logo.png';
-import logo from '../public/images/logo.png'
+import logo from './assets/images/logo.png';
 import Home from './Home'
 import NewSeries from './NewSeries'
 import Series from './Series'

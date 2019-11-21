@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 
-import logo from './assets/images/logo.png';
-//import logo from  '../public/images/logo.png'
+
+import logo from  './assets/images/logo.png'
 import api from './Api'
 
 class Home extends Component{
