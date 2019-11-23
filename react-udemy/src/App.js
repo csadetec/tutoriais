@@ -1,6 +1,35 @@
 import React, {Component} from 'react'
 
-class App extends Component{
+//35 Ciclo de vido do componente
+export default class App35 extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            hour: '00:00:00'
+        }
+    }
+    componentDidMount(){
+        setInterval(()=>{
+            this.setState({hour: new Date().toLocaleTimeString()})
+        }, 1000)
+    }
+
+    componentDidUpdate(){
+        console.log('Update!')
+    }
+
+    render(){
+        return(
+            <div>
+                <h1>Meu Projeto {this.state.hour}</h1>
+            </div>
+        )
+    }
+}
+
+
+
+class App34 extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -43,5 +72,3 @@ class App extends Component{
         )
     }
 }
-
-export default App
