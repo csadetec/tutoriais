@@ -1,50 +1,44 @@
 import React, {Component} from 'react';
 
+import './App.css'
 
 class App extends Component{
     constructor(props){
         super(props)
         this.state  = {
-            name: '',
-            email: '',
-            password: '',
-            error: ''
+            phrases:[
+                'Siga os bons e aprenda com eles.',
+                 'O bom-senso vale mais do que muito',
+                 'A maior barreira para o sucesso é o medo do fracasso'
+            ]
 
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+
+        this.brokeCookie = this.brokeCookie.bind(this)
+      
     }
 
-    handleSubmit(e){
-        const { name, email, password } = this.state
-
-        if(name && email && password){
-            alert(`Nome: ${name} \nEmail: ${email} \nPassword:${password}`)
-            this.setState({error:''})
-        }else{
-            this.setState({error:'Ops algo errado!'})
-        }
-     
-        e.preventDefault()
+    brokeCookie(){
+        alert('quebrou')
     }
+
+    render(){
+        return(
+            <div className="container">
+                <img alt="Of a cookie"
+                 src={"http://1.bp.blogspot.com/-734LuPB5HwE/UNMc6ENnliI/AAAAAAAADIE/6VBCFUYESbU/s1600/Fortune-cookie550.jpg"} />
+                 <Button name = "Abrir Biscoito" anction={this.brokeCookie} />
+                 <h3 className="textPhrase">Frase</h3>
+            </div>
+        )
+    }
+}
+
+class Button extends Component{
     render(){
         return(
             <div>
-                <h1>Novo Usuário</h1>
-                {this.state.error && 
-                <p>{this.state.error}</p>}
-                <form onSubmit={this.handleSubmit}>
-                    Nome: 
-                    <input type="text" name="name" value={this.state.name}
-                        onChange={(e) => this.setState({name: e.target.value})}  /><br/>
-                    E-mail: 
-                    <input type="email" name="email" value={this.state.email}
-                        onChange={(e) => this.setState({email: e.target.value})}  /><br/>
-                    Senha:
-                    <input type="password" name="password" value={this.state.password} 
-                        onChange={(e) => this.setState({password: e.target.value})} /><br/>
-                    <br/>
-                    <button type="submit">Cadastrar</button>
-                </form>
+                <button onClick={this.props.anction}>{this.props.name}</button>
             </div>
         )
     }
