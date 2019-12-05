@@ -1,0 +1,30 @@
+{
+  "name": "ead-api",
+  "version": "0.0.1",
+  "description": "API da plataforma de ensino a distância",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon src/index",
+    "eslint": "eslint ./src/**/*.js"
+  },
+  "keywords": [
+    "\"Plataform",
+    "ead",
+    "programador\""
+  ],
+  "author": "\"Programador a Bordo, Lucas de Sousa\"",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^18.4.0",
+    "nodemon": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "6.1.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0"
+  }
+}
