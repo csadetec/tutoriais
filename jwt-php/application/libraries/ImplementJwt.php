@@ -1,8 +1,8 @@
 <?php
-//require APPPATH.'/libraries/JWT.php';
-require __DIR__.'/JWT.php';
-
-class ImplementJwt
+require APPPATH.'libraries/JWT.php';
+//require __DIR__.'/JWT.php';
+//echo APPPATH.'libraries/JWT.php';
+class ImplementJwt 
 {
   //The function generate token
   private $key = "subscribe_my_channel";

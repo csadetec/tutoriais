@@ -21,4 +21,19 @@ class Test extends CI_Controller {
     $jwtToken = $this->objOfJwt->GenerateToken($tokenData);
     echo json_encode(array('Token'=>$jwtToken));
   }
+
+  public function GetTokenData()
+  {
+    $received_Token = $this->input->request_headers('Authorization');
+    try{
+      $jwtData = $this->objOfJwt->DecodeToken($received_Token['Token']);
+      echo json_encode($jwtData);
+    }catch (Exception $e){
+      http_response_code('401');
+      $data['status'] = false;
+      $data['message'] = $e->getMessage();
+      echo json_encode($data);
+      exit;
+    }
+  }
 }
